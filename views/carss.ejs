@@ -1,0 +1,25 @@
+<% include partials/header.ejs %>
+
+<h1><%= title %></h1>
+<a href="/carss/add">Add a new Car</a>
+<table class="table table-striped">
+    <tr>
+        <th>Company Name</th>
+        <th>Model Name</th>
+        <th>Engine</th>
+        <th>Year</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <% for (var i=0; i < carss.length; i++) { %>
+    <tr>
+        <td><%= carss[i].companyName %></td>
+        <td><%= carss[i].model %></td>
+        <td><%= carss[i].engine %></td>
+        <td><%= carss[i].year %></td>
+        <td><a href="/carss/<%= carss[i]._id %>">Edit</a></td>
+        <td><a href="/carss/delete/<%= carss[i]._id %>" class="confirmation">Delete</a></td>
+    </tr>
+    <% } %>
+</table>
+<% include partials/footer.ejs %>
