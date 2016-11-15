@@ -77,7 +77,7 @@ router.get('/facebook/callback', passport.authenticate('facebook', {
   failureMessage: 'Invalid Login'
 }), function (req, res, next)
 {
-  res.reirect('/carss');
+  res.redirect('/carss');
 });
 
 /* GET github */
@@ -90,7 +90,7 @@ router.get('/github/callback', passport.authenticate('github', {
   failureMessage: 'Invalid Login'
 }), function (req, res, next)
 {
-  res.reirect('/carss');
+  res.redirect('/carss');
 });
 
 module.exports = router;
