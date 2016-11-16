@@ -51,7 +51,7 @@ router.get('/add', isLoggedIn, function(req, res, next) {
 router.post('/add', isLoggedIn, function(req, res, next) {
     // use the Game model and call the Mongoose create function
     Car.create( {
-        title: req.body.title   ,
+        title: req.body.title,
         model: req.body.model,
         engine: req.body.engine,
         year: req.body.year

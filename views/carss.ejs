@@ -18,8 +18,7 @@
     <td><%= cars[i].engine %></td>
     <td><%= cars[i].year %></td>
     <td><a href="/carss/<%= cars[i]._id %>">Edit</a></td>
-    <td><a href="/carss/delete/<%= cars[i]._id %>" class="confirmation">Delete</a></td>
-</tr>
+    <td><a href="/carss/delete/<%= cars[i]._id %>" class="confirmation">Delete</a></td></tr>
 <% } %>
 </table>
 <% include partials/footer.ejs %>
