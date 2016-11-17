@@ -3,9 +3,9 @@
 <main class="container">
 <h1>Login</h1>
 
-<% message = "Please Login"
-if (message.length > 0) { %>
-<div class="alert alert-danger"><%= message %></div>
+<%
+if (messages.length > 0) { %>
+<div class="alert alert-danger"><%= messages %></div>
 <% }
 else { %>
 <div class="alert alert-success">

@@ -3,8 +3,8 @@
  */
 // global variables for the application
 module.exports = {
-    db: 'mongodb://localhost/randeep',
-    secret: 'UseThis to create Salt 123',
+    db: 'mongodb://Randy22:randysaab22@ds031942.mlab.com:31942/assignment',
+    secret: 'UseThis to create Salt 123456',
     ids: {
         facebook: {
             clientID: '333643726992452',
