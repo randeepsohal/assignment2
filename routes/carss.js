@@ -118,7 +118,7 @@ router.post('/:_id', isLoggedIn, function(req, res, next) {
     });
 
     // save the update using Mongoose
-    Car.update( { _id: _id }, cars, function(err) {
+    Car.update( { _id: _id }, carss, function(err) {
         if (err) {
             console.log(err);
             res.render('error', {message: 'Could not Update Car'});

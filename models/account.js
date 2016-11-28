@@ -4,7 +4,7 @@
 var mongoose = require('mongoose');
 
 // reference passport-local-mongoose so passport can use this model for user authentication
-var plm = require('passport-local-mongoose');
+var pm = require('passport-local-mongoose');
 
 // define the user schema
 var AccountSchema = new mongoose.Schema({
@@ -13,7 +13,7 @@ var AccountSchema = new mongoose.Schema({
     created: String
 });
 
-AccountSchema.plugin(plm);
+AccountSchema.plugin(pm);
 
 // make it public
 module.exports = mongoose.model('Account', AccountSchema);
