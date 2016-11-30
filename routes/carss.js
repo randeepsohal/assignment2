@@ -5,7 +5,7 @@ var express = require('express');
 var router = express.Router();
 
 //reference to the cars model
-var Car = require('../models/cars');
+var Cars = require('../models/cars');
 
 //auth check
 function isLoggedIn(req,res,next) {
@@ -21,7 +21,7 @@ function isLoggedIn(req,res,next) {
 router.get('/', isLoggedIn, function (req,res,next) {
 
     //use cars model to run query
-    Car.find(function (err, carss) {
+    Cars.find(function (err, carss) {
         if (err) {
             console.log(err);
             res.render('error');
@@ -37,20 +37,18 @@ router.get('/', isLoggedIn, function (req,res,next) {
 
 });
 
-/* GET /games/add - display empty Game form */
 router.get('/add', isLoggedIn, function(req, res, next) {
 
-    // load the blank game form
+    // load the blank car form
     res.render('add-car', {
         title: 'Add a New Car',
         user: req.user
     });
 });
 
-/* POST /games/add - process form submission */
+/* POST /carss/add - process form submission */
 router.post('/add', isLoggedIn, function(req, res, next) {
-    // use the Game model and call the Mongoose create function
-    Car.create( {
+    Cars.create( {
         title: req.body.title,
         model: req.body.model,
         engine: req.body.engine,
@@ -66,13 +64,12 @@ router.post('/add', isLoggedIn, function(req, res, next) {
     });
 });
 
-/* GET /games/delete/:_id - run a delete on selected game */
+/* GET /carss/delete/:_id*/
 router.get('/delete/:_id', isLoggedIn, function(req, res, next) {
     // read the id value from the url
     var _id = req.params._id;
 
-    // use mongoose to delete this game
-    Car.remove( { _id: _id }, function(err) {
+    Cars.remove( { _id: _id }, function(err) {
         if (err) {
             console.log(err);
             res.render('error', {message: 'Delete Error'});
@@ -81,13 +78,13 @@ router.get('/delete/:_id', isLoggedIn, function(req, res, next) {
     });
 });
 
-/* GET /games/:_id - show the edit form */
+/* GET /carss/:_id - show the edit form */
 router.get('/:_id', isLoggedIn, function(req, res, next) {
     // get the id from the url
     var _id = req.params._id;
 
-    // look up the selected Game document with this _id
-    Car.findById(_id,  function(err, cars) {
+    // look up the selected Cars document with this _id
+    Cars.findById(_id,  function(err, cars) {
         if (err) {
             console.log(err);
             res.render('error', { message: 'Could not find Car'});
@@ -96,20 +93,20 @@ router.get('/:_id', isLoggedIn, function(req, res, next) {
             // load the edit form
             res.render('edit-car', {
                 title: 'Edit Car',
-                model: cars,
+                cars: cars,
                 user: req.user
             });
         }
     });
 });
 
-/* POST /games/:_id - save form to process Game updates */
+/* POST /carss/:_id - save form to process car updates */
 router.post('/:_id', isLoggedIn, function(req, res, next) {
     // get the id from the url
     var _id = req.params._id;
 
-    // instantiate a new Game object & populate it from the form
-    var Car = new Car( {
+    // instantiate a new cars object & populate it from the form
+    var cars = new Cars( {
         _id: _id,
         title: req.body.title,
         model: req.body.model,
@@ -118,7 +115,7 @@ router.post('/:_id', isLoggedIn, function(req, res, next) {
     });
 
     // save the update using Mongoose
-    Car.update( { _id: _id }, carss, function(err) {
+    Cars.update( { _id: _id }, cars, function(err) {
         if (err) {
             console.log(err);
             res.render('error', {message: 'Could not Update Car'});
