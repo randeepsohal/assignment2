@@ -20,20 +20,20 @@ function isLoggedIn(req,res,next) {
 //GET handler for carss
 router.get('/', isLoggedIn, function (req,res,next) {
 
-    //use cars model to run query
-    Cars.find(function (err, carss) {
-        if (err) {
-            console.log(err);
-            res.render('error');
-        }
-        else {
-            res.render('carss', {
-                title: 'Company Names',
-                cars: carss,
-                user: req.user
-            });
-        }
-    });
+//use cars model to run query
+Cars.find(function (err, carss) {
+    if (err) {
+        console.log(err);
+        res.render('error');
+    }
+    else {
+        res.render('carss', {
+            title: 'Company Names',
+            cars: carss,
+            user: req.user
+        });
+    }
+});
 
 });
 

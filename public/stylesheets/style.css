@@ -1,9 +1,100 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: #f8f8f8;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    color: #888;
+    font-size: 18px;
+    font-weight: 400;
 }
+
 
 a {
-  color: #00B7FF;
+    color: crimson;
+    text-decoration: none;
+    -o-transition: all .3s; -moz-transition: all .3s; -webkit-transition: all .3s; -ms-transition: all .3s; transition: all .3s;
+}
+a:hover, a:focus { color: #888; text-decoration: none; }
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    color: crimson;
+    line-height: 100px;
+    font-weight: bold;
 }
 
+h2 {
+	margin: 0;
+    background: #f8f8f8;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    color: #5d5d5d;
+    line-height: 40px;
+    font-weight: bold;
+    text-align: left;
+}
+/***** Top menu *****/
+
+.navbar {
+	background: #fff;
+}
+.navbar li{
+    list-style: none;
+    float: left;
+    padding: 10px;
+}
+.navbar-text{
+    float: right;
+}
+.btn-success:hover{
+    cursor:pointer;
+}
+.navbar-fixed-bottom {
+    position: absolute;
+    top: 97%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.table-striped tr th{
+    padding:5px 15px;
+}
+.table-striped tr td{
+    text-align: left;
+    padding:5px 15px;
+}
+button.btn {
+    height: 39px;
+    width: 150px;
+    margin: 0;
+    padding: -29px;
+    vertical-align: text-bottom;
+    background: #0eb445;
+    border: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    line-height: 30px;
+    color: #fff;
+}
+
+button.btn:hover {
+    background: #df0729;
+    border: 0;
+    color: #fff;
+}
+div.form-group label {
+    display: inline-block;
+    width: 25%;
+}
+
+div.form-group {
+    margin-top: 10px;
+}
+div.form-group input {
+    display: inline-block;
+    width:25%;
+}
+table.table-striped {
+    display: inline-block;
+    margin-left: 50px;
+}
